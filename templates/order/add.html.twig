@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Payer votre commande - La Boutique Française{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Mon récapitulatif</h2>
+            <p>Vérifier vos information avant de payez votre commande</p>
+            <hr>
+        </div>
+        <div class="col-md-10 m-auto">
+            <div class="text-center">
+                <b>Ma commande</b><br>
+            </div>
+            <div class="order-summary">
+                {% set total = null %}
+                {% for product in cart %}
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="/assets/images/{{ product.product.illustration }}" alt="{{ product.product.illustration }}" height="75px">
+                        </div>
+                        <div class="col-8 my-auto">
+                            {{ product.product.name }}<br>
+                            <small>
+                                {{ product.product.subtitle }}
+                                <br/>
+                                x {{ product.quantity }}
+                            </small>
+                        </div>
+                        <div class="col-2 my-auto">
+                            {{ ((product.product.price * product.quantity)  / 100)|number_format(2, ',', '.') }}€
+                        </div>
+                    </div>
+                    {% set total = total + (product.product.price * product.quantity) %}
+                {% endfor %}
+            </div>
+            <hr>
+            <div>
+                <strong>Adresse de livraison :</strong>
+                <br/>
+                <span>{{ delivery|raw }}</span><br/>
+                <strong>Mode de livraison : </strong><span>{{ carrier.name }}</span>
+            </div>
+            <hr>
+            <strong>Sous-Total :</strong> {{ (total  / 100)|number_format(2, ',', '.') }}€ <br/>
+            <strong>TVA :</strong>  <br/>
+            <strong>Livraison :</strong> {{ carrier.price |number_format(2, ',', '.') }}€<br/>
+            <hr>
+            <strong>Total :</strong> {{ ((total  / 100) + carrier.price)|number_format(2, ',', '.') }}€ <br/>
+            <a href="" class="btn btn-success mt-3 float-right">Payer | {{ ((total  / 100) + carrier.price)|number_format(2, ',', '.') }}€</a>
+        </div>
+    </div>
+{% endblock %}

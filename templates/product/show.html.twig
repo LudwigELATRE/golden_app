@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ product.name }}
+	- Golden Fingers
+{% endblock %}
+
+{% block content %}
+	<div class="row" id="product-block">
+		<div class="col-md-5" id="illustration">
+			<img src="/assets/images/{{ product.illustration }}" alt="{{ product.illustration }}" class="img-fluid">
+		</div>
+		<div class="col-md-7 my-auto" id="subtitle">
+			<h3 class="text-center">
+				{{ product.name }}
+			</h3>
+			<p>{{ product.name }}
+				:
+				<span>{{ (product.price / 100)|number_format(2, ',', '.') }}€</span>
+			</p>
+			<hr>
+			<p>{{ product.subtitle }}</p>
+			<p>{{ product.description }}</p>
+			{% if {{ productStock.stock }} == 0 %}
+				<a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-warning">Ajouter au panier</a>
+			{% else %}
+				<a href="" class="btn btn-warning">Article indispanible</a>
+			{% endif %}
+		</div>
+	</div>
+	<div class="button-retour" id="button-retour" style="display: block; text-align:end;">
+		<button id="retour" role="button">
+			<a href="{{ path('products') }}" style="color:black; text-decoration:none;">Retour</a>
+		</button>
+	</div>
+
+{% endblock %}

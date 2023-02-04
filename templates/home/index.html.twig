@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+{#    <main>#}
+{#    {% if block('block-main') is defined %}#}
+{#    <div class="block-main">#}
+        <div id="container">
+            <div class="container-word">
+                <h1 class="animate__animated animate__backInLeft">HELLO WORLD</h1>
+                <h2 class="animate__animated animate__backInRight">Bienvenue</h2>
+            </div>
+            <div id="carousel">
+                <figure>
+                    <img src="{{ asset('assets/img/coupe-8.jpeg') }}" alt="" />
+                </figure>
+                <figure>
+                    <img src="{{ asset('assets/img/coupe-9.jpeg') }}" alt="" />
+                </figure>
+                <figure>
+                    <img src="{{ asset('assets/img/coupe-10.jpeg') }}" alt="" />
+                </figure>
+            </div>
+        </div>
+        <article id="container-histoire">
+            <h1>Notre Histoire</h1>
+            <p>
+                Il s’agit de deux cousines, Cheryl et Maria, respectivement âgées de 25 et 23 ans. Elles débutent leurs Locks en 2015 et deviennent coiffeuses officielles de l’une et de l’autre. Comme on le sait, garder les mêmes mains pour se faire coiffer est important. Malheureusement, en 2017, Maria s’en va pour l’hexagone afin de poursuivre ses études. C’est alors que les deux cousines n’ont plus leur coiffeuse respective. Trouver une nouvelle coiffeuse fut si éprouvant, qu’il aurait fallu que les deux cousines puissent se suivre pour le bonheur de leurs cheveux. Et c’est ainsi qu’est né Golden Fingers. Un suivi capillaire accompagnant nos jeunes entre la Guadeloupe et la France. Leur donnant ainsi la possibilité de savoir à qui confier leurs cheveux en toute confiance sur les deux territoires.
+            </p>
+        </article>
+        <div id="container-avis">
+            <article id="container-avis-1">
+                <div id="container-avis-starz">
+                    <h1>avis client</h1>
+                    <span id="starz"
+                    ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                        ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                        ><i class="fa-solid fa-star"></i>
+            </span>
+                </div>
+                <div id="container-avis-client"></div>
+            </article>
+            <article id="container-avis-2">
+                <div class="container-bubble-1">
+                    <div class="bubble">
+                        <div class="contenu">
+                <span class="avis-user"
+                ><i class="fa-brands fa-whatsapp"></i>Solène</span
+                >
+                            <p>
+                                Salut salut, la coiffure a eu énormément de succès, mais
+                                vraiment !
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bubble">
+                        <div class="contenu">
+                <span class="avis-user"
+                ><i class="fa-brands fa-whatsapp"></i>Ingrid</span
+                >
+                            <p>
+                                Merci encore pour la prestation et d'être venue jusqu'à chez
+                                moi 🥰 Toujours aussi satisfaite de ton travail !!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-bubble-1">
+                    <div class="bubble">
+                        <div class="contenu">
+                <span class="avis-user"
+                ><i class="fa-brands fa-whatsapp"></i>Thomas</span
+                >
+                            <p>
+                                Vraiment au top la prestation tous le monde me complimente. Je
+                                me sens beau ! Merci beaucoup et à dans pas longtemps du coup
+                                !
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bubble">
+                        <div class="contenu">
+                <span class="avis-user"
+                ><i class="fa-brands fa-whatsapp"></i>Audrey</span
+                >
+                            <p>
+                                Cc ma belle j'espère que tu es bien rentrée chez toi. Je
+                                tenais à te remercier pour ta prestation qui est juste
+                                parfaite 🥰
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="container-newsletter">
+            <h4>Inscrivez-vous à notre Newsletter!</h4>
+            <p>
+                Inscrivez-vous et recevez toutes les
+                <strong>offres promotionnelles</strong>, actualités et conseils de
+                Golden Fingers Officiel!
+            </p>
+            <a id="submit-newsletter" href="{{ path('newsletter') }}">Inscription</a>
+{#            <form method="POST" action="php/newsletter.php">#}
+{#                <input  type="text" id='nom' placeholder="Entrer votre nom..." name="nom"  required>#}
+{#                <input type="text" id='prenom' placeholder="Entrer votre prénom..." name="prenom"  required>#}
+{#                <input#}
+{#                        id="email"#}
+{#                        name="email"#}
+{#                        type="email"#}
+{#                        placeholder="Entrer votre adresse e-mail."#}
+{#                        required#}
+{#                />#}
+{#                <input type="submit" value="Envoyer" id="submit" />#}
+{#                <span id="validation"></span>#}
+{#            </form>#}
+        </div>
+{#    </div>#}
+{% endblock %}

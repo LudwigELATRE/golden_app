@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div id="container-apropos">
+        <figure id="img-proprio">
+            <img src="{{ asset('assets/img/maria.jpeg') }}" id="proprio" alt="proprio" />
+        </figure>
+        <p>
+            Il s’agit de deux cousines, Chéryl et Maria, respectivement âgées de
+            25 et 23 ans. Elles débutent leurs Locks en 2015 et deviennent
+            coiffeuses officielles de l’une et de l’autre. Comme on le sait,
+            garder les mêmes mains pour se faire coiffer est important.
+            Malheureusement, en 2017, Maria s’en va pour l’hexagone afin de
+            poursuivre ses études. C’est alors que les deux cousines n’ont plus
+            leurs coiffeuses respectives. Trouver une nouvelle coiffeuse fut si
+            éprouvant, qu’il aurait fallu que les deux cousines puissent se suivre
+            pour le bonheur de leurs cheveux. Et c’est ainsi qu’est né Golden
+            Fingers. Un suivi capillaire accompagnant nos jeunes entre la
+            Guadeloupe et la France. Leur donnant ainsi la possibilité de savoir à
+            qui confier leurs cheveux en toute confiance sur les deux territoires.
+        </p>
+    </div>
+    <div class="container-newsletter">
+        <h4>Inscrivez-vous à notre Newsletter!</h4>
+        <p>
+            Inscrivez-vous et recevez toutes les
+            <strong>offres promotonnelles</strong>, actualités et conseils de
+            Golden Fingers Officiel!
+        </p>
+        <a id="submit-newsletter" href="{{ path('newsletter') }}">Inscription</a>
+{#        <form method="post" action="">#}
+{#            <input#}
+{#                    type="text"#}
+{#                    id="nom"#}
+{#                    placeholder="Entrer votre nom..."#}
+{#                    name="nom"#}
+{#                    required#}
+{#            />#}
+{#            <input#}
+{#                    type="text"#}
+{#                    id="prenom"#}
+{#                    placeholder="Entrer votre prénom..."#}
+{#                    name="prenom"#}
+{#                    required#}
+{#            />#}
+{#            <input#}
+{#                    id="email"#}
+{#                    name="email"#}
+{#                    type="email"#}
+{#                    placeholder="Entrer votre adresse e-mail."#}
+{#                    required#}
+{#            />#}
+{#            <input type="submit" value="Envoyer" id="submit" />#}
+{#            <span id="validation"></span>#}
+{#        </form>#}
+    </div>
+{% endblock %}

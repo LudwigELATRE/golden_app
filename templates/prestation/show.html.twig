@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ prestation.name }}
+	- Golden Fingers
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-5" id="card-image">
+			<img src="/assets/images/{{ prestation.illustration }}" alt="{{ prestation.illustration }}" class="img-fluid w-75">
+		</div>
+		<div class="col-md-7 my-auto">
+			<h3 class="text-center">
+				{{ prestation.name }}
+			</h3>
+			<p>{{ prestation.subtitle }}</p>
+			{{ (prestation.price / 100)|number_format(2, ',', '.') }}€
+			<hr style="border:0.2px solid #dcb958">
+			<p class="mb-4">{{ prestation.description }}</p>
+			<a href="" class="btn-horaire">choisir votre horaire</a>
+		</div>
+	</div>
+	<div class="button-retour" id="button-retour" style="display: block; text-align:end;">
+		<button id="retour" role="button">
+			<a href="{{ path('prestations') }}" style="color:black; text-decoration:none;">Retour</a>
+		</button>
+	</div>
+{% endblock %}

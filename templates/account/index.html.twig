@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Mon Compte - Golden Fingers
+{% endblock %}
+
+{% block content %}
+	<div class="card-profil">
+		<div class="card-border-top"></div>
+		<div class="img">
+			<i class="fa-solid fa-user" id="user-icon"></i>
+		</div>
+		<span>{{ app.user.firstname }}</span>
+		<p class="job">Bienvenue dans votre compte. C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.</p>
+		<button>
+			Voir mes informations
+		</button>
+	</div>
+	<hr>
+	<div id="container-profil">
+		<ul>
+			<li><a class="lien-profil"href={{ path('account_password') }}>Modifier mon mot de passe</a></li>
+			<li><a class="lien-profil"href={{ path('account_address') }}>Gérer mes adresses</a></li>
+			<li><a class="lien-profil" href=>Mes commandes</a></li>
+		</ul>
+	</div>
+	<hr>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription Newsletter - Golden Fingers{% endblock %}
+
+{% block content %}
+        <div class="row" id="newsletter-flex">
+            {% for message in app.flashes('message') %}
+                <div>{{ message }}</div>
+            {% endfor %}
+            <h1 id="title-newsletter">Inscrivez vous a notre newsletter</h1>
+            {{ form(newsletterForm) }}
+        </div>
+{% endblock %}

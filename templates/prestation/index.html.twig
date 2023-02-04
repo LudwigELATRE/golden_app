@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{#{% block title %}Prestation{% endblock %}#}
+
+{% block content %}
+	<div id="container-prestation">
+		<div class="container-left">
+			<button class="button-prestation" id="bouton-braid" role="button">Braid</button>
+		</div>
+		<div class="row justify-content-center" id="braid" style="display: none;">
+			{% for prestation in prestations %}
+				{% if prestation.categoryPresentation.name == "braid" %}
+					<div class="card" style="width: 18rem;">
+						<img src="assets/images/{{ prestation.illustration }}" alt="{{ prestation.illustration }}" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{ prestation.name }}</h5>
+							<p class="card-text text-center mb-2">Cette coiffure consiste à imiter des DreadLocks à l’aide de mèche Afro synthétiques. Idéale si vous souhaitez une coiffure protectrice pour une longue durée ( 5-7 semaines ).</p>
+							<a id="btn_fausses_locks" class="btn btn-lg btn-block" style="background-color:#dcb958; color: #fae7b4;" href="{{ path('prestation', { 'slug': prestation.slug }) }}">Go Réserver
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="container-right">
+			<button class="button-prestation" id="bouton-locks" role="button">Locks</button>
+		</div>
+		<div class="row justify-content-center" id="locks" style="display: none;">
+			{% for prestation in prestations %}
+				{% if prestation.categoryPresentation.name == "locks" %}
+					<div class="card .col-6 .col-md-4" style="width: 18rem;">
+						<img src="assets/images/{{ prestation.illustration }}" alt="{{ prestation.illustration }}" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{ prestation.name }}</h5>
+							<p class="card-text text-center mb-2">Pour tout départ de locks veuillez nous contacter directement par mail en envoyant la photo de vos cheveux secs et démêlés en précisant la forme de tracé souhaitée.</p>
+							<a id="btn_fausses_locks" class="btn btn-lg btn-block" style="background-color:#dcb958; color: #fae7b4;" href="{{ path('prestation', { 'slug': prestation.slug }) }}">Go Réserver
+							</a>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<div class="button-retour" id="button-retour" style="display: none;">
+		<button id="retour" role="button">Retour</button>
+	</div>/
+	<div class="container-newsletter">
+		<h4>Inscrivez-vous à notre Newsletter!</h4>
+		<p>
+			Inscrivez-vous et recevez toutes les
+			<strong>offres promotonnelles</strong>, actualités et conseils de Golden Fingers Officiel!
+		</p>
+		<form method="post" action="php/newsletter.php">
+			<input type="text" id="nom" placeholder="Entrer votre nom..." name="nom" required/>
+			<input type="text" id="prenom" placeholder="Entrer votre prénom..." name="prenom" required/>
+			<input id="email" name="email" type="email" placeholder="Entrer votre adresse e-mail." required/>
+			<input type="submit" value="Envoyer" id="submit"/>
+			<span id="validation"></span>
+		</form>
+	</div>
+{% endblock %}

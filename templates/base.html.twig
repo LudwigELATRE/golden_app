@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta
+		name="description" content="Golden Fingers">
+		<!-- description de la page -->
+		<meta
+		name="keywords" content="GoldenFingers">
+		<!-- Mot clef de la page -->
+		<meta
+		name="author" content="Elatre Ludwig">
+		<!-- Auteur du site -->
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Font-Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+		<title>Golden Fingers</title>
+		<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/boutique.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/reset.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div id="header-logo">
+				<div id="logo">
+					<div id="header-resaux">
+						<ul>
+							<li><a href="https://instagram.com/golden_fingersoff?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.tiktok.com/@goldenfingers.paris" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+						</ul>
+					</div>
+					<a href="../index.php">
+						<img src="{{ asset('assets/img/logo-gf.png') }}" class="animate__animated animate__backInDown" alt="logo golden fingers"/>
+					</a>
+				</div>
+			</div>
+			<div id="navigation">
+				<div>
+					<span id="burger-menu">&#9776;</span>
+					<span id="croix" style="display: none">
+						<i class="fa-solid fa-xmark"></i>
+					</span>
+				</div>
+				<nav id="menu">
+					<ul>
+						<li>
+							<a href="{{ path('home') }}">Accueil</a>
+						</li>
+						{% if app.user %}
+							<li>
+								<a href="{{ path('products') }}">
+									Nos Produits</a>
+							</li>
+							<li>
+								<a href="{{ path('prestations') }}">Prestations</a>
+							</li>
+							<li>
+								<a href="{{ path('apropos') }}">À Propos</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="{{ path('products') }}">Nos Produits</a>
+							</li>
+							<li>
+								<a href="{{ path('prestations') }}">Prestations</a>
+							</li>
+							<li>
+								<a href="{{ path('apropos') }}">À Propos</a>
+							</li>
+						{% endif %}
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a href="{{ 'admin' }}">BackOffice</a>
+							</li>
+						{% endif %}
+					</ul>
+				</nav>
+				<div id="user-end-card">
+					<ul>
+						{% if app.user %}
+							<li>
+								<a href="{{ path('cart') }}">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('account') }}">
+									<i class="fa-solid fa-user"></i>
+								</a>
+							</li>
+							<li id="li_ins_con">
+								<span>/</span>
+								<a href="{{ path('app_logout') }}" class="ins_con">Deconexion</a>
+							</li>
+							<?php endif ?>
+						{% else %}
+							<li id="li_ins_con">
+								<a href="{{ path('register') }}" class="ins_con">S'inscrire</a>
+								<span>/</span>
+								<a href="{{ path('app_login') }}" class="ins_con">Connexion</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</header>
+		<main style="padding: 20px;"> {% block content %}{% endblock %}
+			</main>
+			<footer>
+				<div class="footer-1">
+					<div class="footer-logo">
+						<a href="{{ path('home') }}">
+							<img src="{{ asset('assets/img/logo-gf.png') }}" alt=""/>
+						</a>
+					</div>
+					<div class="footer-engagement">
+						<h5>Nos engagements :</h5>
+						<ul>
+							<li>
+								<a href="http://">Conditions générales de vente.</a>
+							</li>
+							<li>
+								<a href="http://">Paiement sécurisé.</a>
+							</li>
+							<li>
+								<a href="{{ path('apropos') }}" target="_blank">A propos.</a>
+							</li>
+							<li>
+								<a href="{{ path('contact') }}" target="_blank">Contact.</a>/
+							</li>
+						</ul>
+					</div>
+					<div class="footer-coordonne">
+						<h5>Nos Coordonnées :</h5>
+						<ul>
+							<li>
+								<i class="fa-solid fa-location-dot"></i>
+								GUADELOUPE : 0690 11 62 20
+							</li>
+							<li>
+								<i class="fa-solid fa-location-dot"></i>
+								ILE-DE-FRANCE : 0767 10 93 73
+							</li>
+							<li>
+								<i class="fa-solid fa-envelope"></i>
+								<a href="mailto:contact@goldenfingers.fr" id="contact-lien">Contact@goldenfingers.fr</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-suivre">
+						<h5>Nous suivre :</h5>
+						<ul>
+							<li><a href="https://instagram.com/golden_fingersoff?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+							<li><a href="https://www.tiktok.com/@goldenfingers.paris" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+							<li><a href="https://wa.me/33767109373" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+							<li><a href="mailto:contact@goldenfingers.fr" target="_blank"><i class="fa-solid fa-envelope"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<hr/>
+				<div class="footer-2">
+					<ul>
+						<li>
+							<a href="{{path('mention_legale')}}" target="_blank">Mentions-Legales</a>
+						</li>
+						<li>
+							<a href="{{path('politique_de_confidentialiter')}}" target="_blank">Politique-De-Confidentialite</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">Paramètres De Cookies</a>
+						</li>
+						<li>
+							<a href="{{path('contact')}}" target="_blank">Contact</a>/
+						</li>
+					</ul>
+				</div>
+			</footer>
+			<script src="{{ asset('assets/js/script.js') }}"></script>
+			<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+			<script src="{{ asset('assets/js/jquery-1.10.2.js') }}"></script>
+			<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+			<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+			<script src="{{ asset('assets/js/custom.js') }}"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+			<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+		</body>
+	</html>
