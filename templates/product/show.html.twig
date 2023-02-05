@@ -21,11 +21,13 @@
 			<hr>
 			<p>{{ product.subtitle }}</p>
 			<p>{{ product.description }}</p>
-			{% if {{ productStock.stock }} == 0 %}
-				<a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-warning">Ajouter au panier</a>
-			{% else %}
-				<a href="" class="btn btn-warning">Article indispanible</a>
-			{% endif %}
+			{% for productStock in productStocks %}
+				{% if productStock.stock == 0 %}
+					<a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-warning">Ajouter au panier</a>
+				{% else %}
+					<a href="{{ path('products') }}" class="btn btn-warning">Article indisponible</a>
+				{% endif %}
+			{% endfor %}
 		</div>
 	</div>
 	<div class="button-retour" id="button-retour" style="display: block; text-align:end;">

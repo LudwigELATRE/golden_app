@@ -14,16 +14,8 @@
 			<div
 				class="col-md-9">
 				{#            <h3 class="text-center"> Nos Produits </h3>#}
-				<div class="row product-container">
+				<div class="row product-container justify-content-center">
 					{% for product in products %}
-						{# <div class="col-md-3">
-																									<div class="product-item text-center">
-																										<a href="{{ path('product', { 'slug': product.slug }) }}"><img src="assets/images/{{ product.illustration }}" alt="{{ product.illustration }}" class="img-fluid"></a>
-																										<h5>{{ product.name }}</h5>
-																										<span class="product-subtitle">{{ product.subtitle }}</span>
-																										<span class="product-price">{{ (product.price / 100)|number_format(2, ',', '.') }}€</span>
-																									</div>
-																								</div> #}
 						<div class="card-product">
 							<div class="card-img-product">
 								<a href="{{ path('product', { 'slug': product.slug }) }}"><img src="assets/images/{{ product.illustration }}" alt="{{ product.illustration }}" class="img-fluid"></a>

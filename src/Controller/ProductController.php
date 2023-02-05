@@ -27,6 +27,7 @@ class ProductController extends AbstractController
             $products = $productRepository->findWithSearch($search);
         } else {
             $products = $productRepository->findAll();
+            // dd($products);
         }
 
         return $this->render('product/index.html.twig', [
@@ -42,17 +43,17 @@ class ProductController extends AbstractController
     }
 
     #[Route('/produit/{slug}', name: 'product')]
-    public function show($slug, ProductRepository $productRepository): Response
+    public function show($slug, ProductRepository $productRepository, int $stock): Response
     {
         $product = $productRepository->findOneByslug($slug);
 
-        $productStock = $productRepository->findAll();
-        // dd($productsStock);
+        $stocks = $productRepository->findOneByStock($stock);
+        dd($stocks);
 
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'productStock' => $productStock,
+            'stocks' => $stocks,
         ]);
     }
 }

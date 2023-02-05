@@ -17,6 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);
@@ -40,30 +41,30 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Product[] Returns an array of Product objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Product[] Returns an array of Product objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('p.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?Product
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Product
+    //    {
+    //        return $this->createQueryBuilder('p')
+    //            ->andWhere('p.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
     # Requête qui me permet de récuperer les produits en fonction de la recherche de l'utilisateur
     # @return Product[]
     public function findWithSearch(Search $search)
@@ -73,21 +74,24 @@ class ProductRepository extends ServiceEntityRepository
             ->select('c', 'p')
             ->join('p.category', 'c');
 
-        if(!empty($search->categories))
-        {
+        if (!empty($search->categories)) {
             $query = $query
                 ->andWhere('c.id IN (:categories)')
                 ->setParameter('categories', $search->categories);
         }
 
-        if(!empty($search->string))
-        {
+        if (!empty($search->string)) {
             $query = $query
                 ->andWhere('p.name LIKE :string')
-//                faire une recherche partiel.
+                //                faire une recherche partiel.
                 ->setParameter('string', "%{$search->string}%");
         }
 
         return $query->getQuery()->getResult();
+    }
+
+    public function findOneByStock(int $stock)
+    {
+        return $this->findOneBy(['stock' => $stock]);
     }
 }
