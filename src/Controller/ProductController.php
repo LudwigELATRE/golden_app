@@ -46,13 +46,8 @@ class ProductController extends AbstractController
     {
         $product = $productRepository->findOneByslug($slug);
 
-        $productStock = $productRepository->findAll();
-        // dd($productsStock);
-
-
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'productStock' => $productStock,
         ]);
     }
 }

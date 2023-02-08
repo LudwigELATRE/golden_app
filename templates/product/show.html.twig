@@ -21,10 +21,10 @@
 			<hr>
 			<p>{{ product.subtitle }}</p>
 			<p>{{ product.description }}</p>
-			{% if {{ productStock.stock }} == 0 %}
+			{% if product.stock > 10 %}
 				<a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-warning">Ajouter au panier</a>
 			{% else %}
-				<a href="" class="btn btn-warning">Article indispanible</a>
+				<a href="{{ path('products') }}" class="btn btn-warning">Article indisponible</a>
 			{% endif %}
 		</div>
 	</div>
